@@ -20,4 +20,11 @@ public class MenuController {
         UserEntity userEntity = (UserEntity)session.getAttribute("user");
         return menuDao.queryMenuByUserId(userEntity.getId());
     }
+
+    public Object tree()throws SQLException{
+        return menuDao.tree();
+    }
+    public Object query()throws SQLException{
+        return menuDao.query();
+    }
 }

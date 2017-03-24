@@ -2,6 +2,7 @@ package top.appx.zweb.controller;
 
 import top.appx.zutil.eweb.MsgException;
 import top.appx.zutil.eweb.PageInfo;
+import top.appx.zutil.eweb.Param;
 import top.appx.zutil.info.ResultMap;
 import top.appx.zweb.dao.UserDao;
 import top.appx.zweb.entity.UserEntity;
@@ -22,6 +23,12 @@ public class UserController {
     public Object queryPage(PageInfo pageInfo,UserEntity userEntity) throws SQLException {
         pageInfo.setQuery(userEntity);
         return userDao.queryPage(pageInfo);
+    }
+    public void modify(UserEntity userEntity,@Param("roleIds") String roleIds) throws SQLException {
+        userDao.update(userEntity,roleIds);
+    }
+    public void add(UserEntity userEntity,@Param("roleIds") String roleIds)throws SQLException{
+        userDao.save(userEntity,roleIds);
     }
 
     public Object getLoginUser(HttpSession session){

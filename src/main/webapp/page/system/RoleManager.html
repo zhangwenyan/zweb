@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="/js/base.js"></script>
-    <link rel="stylesheet" href="/js/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css" />
-    <script type="text/javascript" src="/js/zTree/js/jquery.ztree.all-3.5.min.js"></script>
+    <link rel="stylesheet" href="/lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css" />
+    <script type="text/javascript" src="/lib/zTree/js/jquery.ztree.all-3.5.min.js"></script>
+    <link href="/lib/showLoading/showLoading.css" rel="stylesheet" />
+    <script src="/lib/showLoading/jquery.showLoading.min.js" type="text/javascript"></script>
     <script>
         $(function () {
             var setting_left = {
@@ -13,6 +15,11 @@
                     enable: true,
                     url: "/Role.action?action=tree",
                     dataFilter: function (treeId, parentNode, rList) {
+                        if(rList.success === false){
+                            $.messager.alert('加载角色列表出错',rList.msg,'info');
+                            return;
+                        }
+
                         for (var i = 0; i < rList.length; i++) {
                             var r = rList[i];
                             r.entity = {
@@ -50,6 +57,7 @@
                     },
                     onAsyncError: function () {
                         $("#panel_west").hideLoading();
+                        $.messager.alert('出错','加载角色出错！','error');
                     },
                     onClick: function (event, treeId, node) {
                         var treeObj = $.fn.zTree.getZTreeObj("tree_center");
@@ -98,7 +106,14 @@
             var setting_center = {
                 async: {
                     enable: true,
-                    url: "/Menu.action?action=tree"
+                    url: "/Menu.action?action=tree",
+                    dataFilter: function (treeId, parentNode, data) {
+                        if(data.success === false){
+                            $.messager.alert("加载菜单列表出错",data.msg,"info");
+                            return;
+                        }
+                        return data;
+                    }
                 },
                 check: {
                     enable: true,
@@ -113,7 +128,7 @@
                     simpleData: {
                         enable: true,
                         idKey: "id",
-                        pIdKey: "pid"
+                        pIdKey: "pId"
                     }
                 },
                 callback: {
@@ -122,6 +137,7 @@
                     },
                     onAsyncError: function () {
                         $("#panel_center").hideLoading();
+                        $.messager.alert('出错','加载菜单列表出错！','error');
                     },
                     onAsyncSuccess: function (event, treeId) {
                         $("#panel_center").hideLoading();
@@ -254,7 +270,7 @@
                 $.messager.progress();
                 $.post("/RoleMenu.action", { action: "save", roleId: selectedNode.id, menuIds: menuIds }, function (result) {
                     if (result.success === false) {
-                        $.messager.alert("失败", result.msg, "error");
+                        $.messager.alert("失败", result.msg, "info");
                         return;
                     }
                     $.messager.show({ title: "提示", msg: "操作成功！" });
@@ -262,22 +278,13 @@
                 }, "json").complete(function () {
                     $.messager.progress("close");
                 }).error(onError);
-
-
-
-
             });
-
-
-
 
         });
 
 
-
- 
-
     </script>
+    <link rel="stylesheet" href="../../lib/showLoading/showLoading.css">
 </head>
 <body class="easyui-layout">
 

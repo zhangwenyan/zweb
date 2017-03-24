@@ -22,6 +22,7 @@
         dg.columns = [[
             { field: "aa", title: "aa", checkbox: true },
             { field: "id", title: "ID" },
+            {field:"pId",title:"pId"},
             { field: "text", title: "名称", width: 100 },
             { field: "url", title: "地址", width: 200 },
             { field: "icon", title: "icon", width: 50 },
@@ -46,7 +47,6 @@
                 </div>
                 <div>
                     <form class="searchForm">
-                        手机号:<input name="mbno" class="easyui-textbox" style="width:110px" />
                         名称:<input name="name" class="easyui-textbox" style="width:110px" />
                         <a class="easyui-linkbutton btn_query" iconcls="icon-search" plain="true">查询</a>
                     </form>
@@ -110,7 +110,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>pid：</td>
+                        <td>pId：</td>
                         <td>
                             <input name="pId" class="easyui-textbox" style="width:240px;" />
                         </td>

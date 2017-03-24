@@ -170,8 +170,8 @@
     </div>
 </div>
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/layer/layer.js"></script>
+<script src="/lib/jquery.min.js"></script>
+<script src="/lib/layer/layer.js"></script>
 <script type="text/javascript">
     function check_login()
     {

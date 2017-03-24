@@ -8,10 +8,10 @@
     <meta http-equiv="expires" content="0" />
     <link href="../../css/style.css" rel="Stylesheet" type="text/css" />
     <script src="/js/base.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="/js/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
-    <script type="text/javascript" src="/js/zTree/js/jquery.ztree.all-3.5.min.js"></script>
+    <link rel="stylesheet" href="/lib/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="/lib/zTree/js/jquery.ztree.all-3.5.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/lib/layer/layer.js"></script>
     <style type="text/css">
         a:hover {
             color: #000000; /*鼠标经过颜色*/

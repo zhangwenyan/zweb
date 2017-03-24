@@ -22,4 +22,7 @@ public class MenuDao extends BaseDao {
         return dh.queryByEntity(new MenuEntity(), Restrain.orderDesc("sequence"));
     }
 
+    public Object query() throws SQLException {
+        return dh.queryDataTable("select * from menu");
+    }
 }

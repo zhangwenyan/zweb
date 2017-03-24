@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Title</title>
-    <script src="/js/jquery.min.js"></script>
+    <script src="/lib/jquery.min.js"></script>
     <script src="/js/jquery-easyui-1.5/jquery.easyui.min.js"></script>
     <link rel="stylesheet" href="/js/jquery-easyui-1.5.1/themes/default/easyui.css" />
 </head>

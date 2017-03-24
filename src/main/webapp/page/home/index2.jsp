@@ -3,8 +3,8 @@
 <html>
 <head>
     <title>Title</title>
-    <link href="/js/bootstrap3.3.5/css/bootstrap.css" rel="stylesheet"/>
-    <script src="/js/bootstrap3.3.5/js/bootstrap.js"></script>
+    <link href="/lib/bootstrap3.3.5/css/bootstrap.css" rel="stylesheet"/>
+    <script src="/lib/bootstrap3.3.5/js/bootstrap.js"></script>
     <style type="text/css">
         body{
             overflow-y: hidden;

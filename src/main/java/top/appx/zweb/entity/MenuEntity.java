@@ -1,8 +1,11 @@
 package top.appx.zweb.entity;
 
+import top.appx.zutil.easysql.Table;
+
 /**
  * Created by mrz on 2017/3/23.
  */
+@Table("menu")
 public class MenuEntity {
     private Integer id;
     private String text;
@@ -10,8 +13,8 @@ public class MenuEntity {
     private String iconCls;
     private String icon;
     private Integer sequence;
-    private Integer pid;
-  //  private boolean open;
+    private Integer pId;
+    private Boolean open;
 
     public Integer getId() {
         return id;
@@ -61,19 +64,20 @@ public class MenuEntity {
         this.sequence = sequence;
     }
 
-    public Integer getPid() {
-        return pid;
+    public Integer getPId() {
+        return pId;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
+    public void setPId(Integer pId) {
+        this.pId = pId;
     }
 
-//    public boolean isOpen() {
-//        return open;
- //   }
 
-  //  public void setOpen(boolean open) {
-  //      this.open = open;
-  //  }
+    public Boolean getOpen() {
+        return open;
+    }
+
+    public void setOpen(Boolean open) {
+        this.open = open;
+    }
 }

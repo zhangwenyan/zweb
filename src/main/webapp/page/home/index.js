@@ -149,7 +149,7 @@ var settingMenu = {
         simpleData: {
             enable: true,
             idKey: "id",
-            pIdKey: "pid",
+            pIdKey: "pId",
             rootPId: 0
         }
     }
