@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/base.js"></script>
+</head>
+<body class="easyui-layout">
+
+    <script>
+    var dlg=null;
+    var dg =null;
+    $(function(){
+        dlg = new Dlg($("#dlg"));
+        dlg.url = "/Menu.action";
+        // dlg.show();
+
+        dg = new Dg($("#dg"));
+        dg.url = "/Menu.action";
+        dg.action = "query";
+        dg.pagination = false;
+        dg.columns = [[
+            { field: "aa", title: "aa", checkbox: true },
+            { field: "id", title: "ID" },
+            { field: "text", title: "名称", width: 100 },
+            { field: "url", title: "地址", width: 200 },
+            { field: "icon", title: "icon", width: 50 },
+            { field: "iconCls", title: "iconCls", width: 50 },
+            { field: "sequence", title: "sequence", width: 30 }
+        ]];
+        dg.init();
+        dg.dlg = dlg;
+
+    })
+    </script>
+    <div data-options="region:'center',noheader:true">
+        <div id="dg">
+            <div class="toolbar" style="padding-top: 8px;padding-left:15px;padding-bottom:5px;display:none">
+                <div style="padding-bottom:5px">
+                    <a class="easyui-linkbutton btn_add" href="javascript:;" iconCls="icon-add" plain="true">添加</a>
+                    <span class="updateRecord">
+                        <a class="easyui-linkbutton btn_modify" href="javascript:;" iconCls="icon-edit" plain="true">修改</a>
+                        <a class="easyui-linkbutton btn_del" href="javascript:;" iconCls="icon-remove" plain="true">删除</a>
+                    </span>
+                    <a href="javascript:window.location.reload()" class="easyui-linkbutton" iconcls="icon-reload" plain="true">重载</a>
+                </div>
+                <div>
+                    <form class="searchForm">
+                        手机号:<input name="mbno" class="easyui-textbox" style="width:110px" />
+                        名称:<input name="name" class="easyui-textbox" style="width:110px" />
+                        <a class="easyui-linkbutton btn_query" iconcls="icon-search" plain="true">查询</a>
+                    </form>
+                </div>
+            </div>
+            <div />
+        </div>
+    </div>
+    <div style="display: none;">
+        <div id="dlg">
+            <form class="mainForm">
+                <input name="id" style="display:none;" />
+                <table>
+                    <tr>
+                        <td>名称:</td>
+                        <td>
+                            <input name="text" class="easyui-textbox" data-options="required:true,missingMessage:'不能为空'" style="width:240px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>URL:</td>
+                        <td>
+                            <input name="url" class="easyui-textbox" data-options="" style="width:240px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>iconCls:</td>
+                        <td>
+                            <input name="iconCls" class="easyui-textbox" style="width:240px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>icon:</td>
+                        <td>
+                            <input name="icon" class="easyui-textbox" data-options="" style="width:240px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>btn_hormal:</td>
+                        <td>
+                            <input name="btn_hormal" class="easyui-textbox" data-options="" style="width:240px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>btn_hover:</td>
+                        <td>
+                            <input name="btn_hover" class="easyui-textbox" data-options="" style="width:240px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>btn_active:</td>
+                        <td>
+                            <input name="btn_active" class="easyui-textbox" data-options="" style="width:240px;" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>sequence:</td>
+                        <td>
+                            <input name="sequence" class="easyui-numberspinner" style="width:240px;" value="0" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>pid：</td>
+                        <td>
+                            <input name="pId" class="easyui-textbox" style="width:240px;" />
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>
